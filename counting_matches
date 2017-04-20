@@ -14,9 +14,9 @@ public class CountingMatches
         // TODO: Prompt the user for a value until they enter Q
         // count how many times the user enters a negative number
         // using the variable counter
-        while (in.hasNextInt()) {
+        while (in.hasNextDouble()) {
             
-            if (in.nextInt() < 0) {
+            if (in.nextDouble() < 0) {
                 counter++;
             }
             System.out.print("Enter a value, Q to quit: " );
