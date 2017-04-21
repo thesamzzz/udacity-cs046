@@ -1,0 +1,32 @@
+package throwing_a_die;
+
+// A program that simulates tossing a die 100 times. 
+// It prints the number of times you roll a 6. 
+import java.util.Random;
+
+public class ThrowingADie
+{
+    public static void main(String[] args)
+    {
+                // This line nitializes the generator and gives it 42 as a "seed." 
+        // The generator will generate a sequence of numbers that
+        // look random, but if you create another generator and seed 
+        // it with 42, it will generate the same sequence. 
+        // DO NOT CHANGE THIS LINE
+        Random generator = new Random(42);
+        // YOUR CODE HERE
+        // Write a loop that simulates 100 die rolls. 
+        // generate 100 random ints using generator. 
+        // the ints should have values 1,2,3,4,5, or 6
+        // Print the number of 6s rolled. 
+        int numOfRolls = 100;
+        int countSixes = 0;
+        for (int i = 0; i <=numOfRolls; i++) {
+            if ((generator.nextInt(6)+1) == 6) {
+                countSixes++;
+            }
+        }
+        System.out.println("Six was rolled " + countSixes + " times.");
+        //Tester application just wants you to print the value of countSixes without the txt.
+    }
+}
