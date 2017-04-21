@@ -1,39 +1,39 @@
-package telescope;
+package dice;
 
-// BlueJ project: lesson6/telescope
+// BlueJ project: lesson6/dice
 
-// Your task is to color all pixels black that are outside the
-// telescope circle. The center and radius of the circle are
-// given below.
+// In the cast method, call the nextInt method and return a
+// random value between 1 and sides
 
-// For each point, find out the distance to the center and
-// check if it is larger than the radius.
+import java.util.Random;
 
-// Hint: The distance between two points (x1, y1) and (x2, y2) is
-// Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
-
-public class Center
+/**
+   This class models a die that, when cast, lands on a random
+   face.
+*/
+public class Die
 {
-    public static void main(String[] args)
+    private Random generator;
+    private int sides;
+
+    /**
+       Constructs a die with a given number of sides.
+       @param s the number of sides, e.g. 6 for a normal die
+    */
+    public Die(int s)
     {
-        Picture pic = new Picture();
-        pic.load("C:/BlueJ/lesson6-2/telescope/queen-mary.png");
-        pic.draw();
+        sides = s;
+        final int SEED = 42;
+        generator = new Random(SEED);
+    }
 
-        double centerX = pic.getWidth() / 2;
-        double centerY = pic.getHeight() / 2;
-        double radius = pic.getHeight() / 4;
-
-        for (int x = 0; x < pic.getWidth(); x++)
-        {
-            for (int y = 0; y < pic.getHeight(); y++)
-            {
-                double distance = Math.sqrt((centerX - x)*(centerX - x)+(centerY - y)*(centerY - y));
-                if (distance > radius)
-                {
-                    pic.setColorAt(x, y, Color.BLACK);
-                }
-            }
-        }
+    /**
+       Simulates a throw of the die
+       @return the face of the die
+    */
+    public int cast()
+    {
+        // TODO: Complete this method
+        return generator.nextInt(sides)+1;
     }
 }
